@@ -1,18 +1,21 @@
+
 spring:
   application:
     name: dataset-operator
+
   datasource:
-    url: jdbc:postgresql://localhost:5432/dataset_db
-    username: postgres
-    password: postgres
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/dataset_db}
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:postgres}
     driver-class-name: org.postgresql.Driver
+
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
+    show-sql: false
     properties:
       hibernate:
         format_sql: true
 
 server:
-  port: 8080
+  port: ${PORT:8080}
